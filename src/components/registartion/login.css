@@ -1,0 +1,23 @@
+bold {
+    cursor: pointer;
+    color: rgb(65, 179, 224);
+}
+.Registration {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.loginBtn {
+    color: #eeeeee;
+    font-weight: 700;
+    background-color: #d65a31;
+}
+.loginBtn:active {
+    background-color: #a53e1b;
+}
+.login_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
