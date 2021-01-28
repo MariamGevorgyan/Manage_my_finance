@@ -32,14 +32,18 @@
         rgba(255, 0, 0, 0.3),
         rgba(236, 189, 57, 0.699)
     );
-    box-shadow: 5px 5px;
+
+    box-shadow: 0 0 10px #000000;
     width: 200px;
     height: 100px;
-    border: black solid 2px;
+    /* border: black solid 2px; */
     border-radius: 15px;
     padding: 5px;
 }
 .linerChart-container {
     display: flex;
     justify-content: center;
+}
+.linerChartPosition {
+    margin-top: 35px;
 }
