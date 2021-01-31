@@ -1,12 +1,3 @@
-bold {
-    cursor: pointer;
-    color: rgb(65, 179, 224);
-}
-.Registration {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
 .loginBtn {
     color: #eeeeee;
     font-weight: 700;

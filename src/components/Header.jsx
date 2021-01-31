@@ -1,15 +1,21 @@
-import LoginBtn from './registartion/LoginBtn'
 import { useState } from 'react'
-export default function Header(props) {
-    const [popUp, setPopUp] = useState(false)
-    function showPop() {
-        setPopUp(!popUp)
-    }
-    return (
-        <div className="header">
-            {props.children}
+import LoginBtn from './registartion/LoginBtn'
 
-            <LoginBtn />
-        </div>
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+    useParams,
+    useRouteMatch,
+} from 'react-router-dom'
+export default function Header(props) {
+    return (
+        <>
+            <div className="header">
+                <LoginBtn />
+            </div>
+        </>
     )
 }
