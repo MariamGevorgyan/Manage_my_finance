@@ -34,13 +34,11 @@ export default function Login(props) {
 
         try {
             await login(emailRef.current.value, passwordRef.current.value)
-            history.push('/')
+            userMessage('success', 'success')
+            return history.push('/')
         } catch {
             return userMessage('error', 'Somethin went wrong')
         }
-
-        login(emailRef.current.value, passwordRef.current.value)
-        return userMessage('success', 'success')
     }
 
     return (

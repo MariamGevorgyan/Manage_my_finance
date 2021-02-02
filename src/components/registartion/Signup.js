@@ -45,17 +45,14 @@ export default function SignIn(props) {
         }
         try {
             await signup(emailRef.current.value, passwordRef.current.value)
-            history.push('/')
+            userMessage('success', 'success')
+            return history.push('/')
         } catch {
             return userMessage(
                 'error',
                 'The email address is already in use by another account.'
             )
         }
-
-        signup(emailRef.current.value, passwordRef.current.value)
-
-        return userMessage('success', 'success')
     }
 
     return (
