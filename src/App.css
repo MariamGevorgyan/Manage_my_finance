@@ -18,11 +18,12 @@
     justify-content: center;
 }
 .cart {
+    margin-top: 30px;
     margin-left: 20px;
     background-image: linear-gradient(
         to right,
-        rgba(255, 0, 0, 0.3),
-        rgba(236, 189, 57, 0.699)
+        rgba(10, 10, 10, 0.651),
+        rgba(236, 114, 57, 0.699)
     );
 
     box-shadow: 0 0 10px #000000;

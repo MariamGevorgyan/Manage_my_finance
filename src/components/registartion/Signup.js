@@ -1,8 +1,9 @@
 import { Form, Button, Card } from 'react-bootstrap'
+import './login.css'
 import { useRef } from 'react'
 import { useAuth } from './context/AuthContext'
 import * as EmailValidator from 'email-validator'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 import './login.css'
@@ -11,7 +12,9 @@ export default function SignIn(props) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup } = useAuth()
+    const history = useHistory()
+    const { signup, currentUser } = useAuth()
+
     function userMessage(icon, title) {
         return Swal.fire({
             position: 'top-center',
@@ -42,6 +45,7 @@ export default function SignIn(props) {
         }
         try {
             await signup(emailRef.current.value, passwordRef.current.value)
+            history.push('/')
         } catch {
             return userMessage(
                 'error',
@@ -50,13 +54,14 @@ export default function SignIn(props) {
         }
 
         signup(emailRef.current.value, passwordRef.current.value)
+
         return userMessage('success', 'success')
     }
 
     return (
         <>
             <Card>
-                <Card.Body>
+                <Card.Body className="cardBody">
                     <Form>
                         <h2 className="text-center mb-4">Sign up</h2>
                         <Form.Group id="email">

@@ -12,9 +12,7 @@ import {
     Switch,
     Route,
     Link,
-    Redirect,
-    useParams,
-    useRouteMatch,
+   
 } from 'react-router-dom'
 
 function App() {
@@ -56,17 +54,19 @@ function App() {
                         </AuthProvider>
                     </Route>
                     <Router path="/login">
-                        <Container
-                            className="d-flex align-items-center justify-content-center"
-                            style={{ minHeight: '100vh' }}
-                        >
-                            <div
-                                className="w-100"
-                                style={{ maxWidth: '400px' }}
+                        <AuthProvider>
+                            <Container
+                                className="d-flex align-items-center justify-content-center"
+                                style={{ minHeight: '100vh' }}
                             >
-                                <Login />
-                            </div>
-                        </Container>
+                                <div
+                                    className="w-100"
+                                    style={{ maxWidth: '400px' }}
+                                >
+                                    <Login />
+                                </div>
+                            </Container>
+                        </AuthProvider>
                     </Router>
                 </Switch>
             </Router>
