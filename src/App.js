@@ -1,9 +1,10 @@
 import './App.css'
 import Header from './components/Header'
+import Login from './components/registartion/Login'
 import LinerChart from './components/charts/linerChart'
 import PieChart from './components/charts/pieChart'
 import Cart from './components/card/Cart'
-import SignIn from './components/registartion/SignIn'
+import Signup from './components/registartion/Signup'
 import { Container } from 'react-bootstrap'
 import AuthProvider from './components/registartion/context/AuthContext'
 import {
@@ -49,11 +50,24 @@ function App() {
                                     className="w-100"
                                     style={{ maxWidth: '400px' }}
                                 >
-                                    <SignIn />
+                                    <Signup />
                                 </div>
                             </Container>
                         </AuthProvider>
                     </Route>
+                    <Router path="/login">
+                        <Container
+                            className="d-flex align-items-center justify-content-center"
+                            style={{ minHeight: '100vh' }}
+                        >
+                            <div
+                                className="w-100"
+                                style={{ maxWidth: '400px' }}
+                            >
+                                <Login />
+                            </div>
+                        </Container>
+                    </Router>
                 </Switch>
             </Router>
         </div>

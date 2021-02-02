@@ -6,7 +6,7 @@ export default function LoginBtn() {
     return (
         <>
             <Link to="/registartion">
-                <button className="btn loginBtn">Sign in </button>
+                <button className="btn loginBtn">Sign up </button>
             </Link>
         </>
     )

@@ -14,11 +14,11 @@ export default function SignIn(props) {
     const { signup } = useAuth()
     function userMessage(icon, title) {
         return Swal.fire({
-            position: 'top-end',
+            position: 'top-center',
             icon,
             title,
             showConfirmButton: false,
-            timer: 1500,
+            timer: 2500,
         })
     }
     async function handleSumbit(e) {
@@ -58,7 +58,7 @@ export default function SignIn(props) {
             <Card>
                 <Card.Body>
                     <Form>
-                        <h2 className="text-center mb-4">Sign in</h2>
+                        <h2 className="text-center mb-4">Sign up</h2>
                         <Form.Group id="email">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
@@ -68,7 +68,7 @@ export default function SignIn(props) {
                             ></Form.Control>
                         </Form.Group>
 
-                        <Form.Group id="email">
+                        <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
                                 type="password"
@@ -86,17 +86,14 @@ export default function SignIn(props) {
                         </Form.Group>
                         <Button
                             onClick={handleSumbit}
-                            className="w-100 btn loginBtn"
+                            className="w-100 btn loginBtn signup"
                             type="sumit"
                         >
-                            Sing in
+                            Sing up
                         </Button>
                     </Form>
                 </Card.Body>
             </Card>
-            <div className="w-100 text-center mt-2">
-                Do you havn't account ?<Link to="/login"> Sign up</Link>
-            </div>
         </>
     )
 }
