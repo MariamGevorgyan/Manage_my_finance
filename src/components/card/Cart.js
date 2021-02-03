@@ -68,7 +68,12 @@ export default function App(props) {
             </div>
             <div className="card_type_money">
                 <span className="card_type">{props.type}</span>
-                <span className="card_money">{props.money}</span>
+                <span
+                    style={{ color: `${props.font_color}` }}
+                    className="card_money"
+                >
+                    {props.money}
+                </span>
             </div>
         </div>
     )
