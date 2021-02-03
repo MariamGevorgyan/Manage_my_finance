@@ -18,19 +18,15 @@
     justify-content: center;
 }
 .cart {
-    margin-top: 30px;
+    border: black solid 1px;
+    /* border-radius: 5px; */
+    margin-top: 20px;
     margin-left: 20px;
-    background-image: linear-gradient(
-        to right,
-        rgba(10, 10, 10, 0.651),
-        rgba(236, 114, 57, 0.699)
-    );
-
-    box-shadow: 0 0 10px #000000;
+    /* box-shadow: 0 0 10px #000000; */
+    border-bottom: #f14107 solid 10px;
     width: 200px;
-    height: 100px;
-    /* border: black solid 2px; */
-    border-radius: 15px;
+    height: 120px;
+
     padding: 5px;
 }
 .linerChart-container {
@@ -39,4 +35,20 @@
 }
 .linerChartPosition {
     margin-top: 35px;
+}
+.card_type {
+    font-size: 30px;
+    font-weight: 700;
+    color: #f14107;
+}
+.card_type_money {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    cursor: pointer;
+}
+.card_money {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
 }
