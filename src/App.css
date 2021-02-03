@@ -52,3 +52,8 @@
     font-size: 20px;
     font-weight: 700;
 }
+.cart_and_icon_card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
