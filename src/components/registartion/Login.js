@@ -5,6 +5,7 @@ import { useAuth } from './context/AuthContext'
 import * as EmailValidator from 'email-validator'
 import { Link, useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { Container } from 'react-bootstrap'
 
 import './login.css'
 
@@ -43,38 +44,45 @@ export default function Login(props) {
 
     return (
         <>
-            <Card>
-                <Card.Body className="cardBody">
-                    <Form>
-                        <h2 className="text-center mb-4">Sign up</h2>
-                        <Form.Group id="email">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control
-                                type="email"
-                                ref={emailRef}
-                                required
-                            ></Form.Control>
-                        </Form.Group>
+            <Container
+                className="d-flex align-items-center justify-content-center"
+                style={{ minHeight: '100vh' }}
+            >
+                <div className="w-100" style={{ maxWidth: '400px' }}>
+                    <Card>
+                        <Card.Body className="cardBody">
+                            <Form>
+                                <h2 className="text-center mb-4">Sign up</h2>
+                                <Form.Group id="email">
+                                    <Form.Label>Email</Form.Label>
+                                    <Form.Control
+                                        type="email"
+                                        ref={emailRef}
+                                        required
+                                    ></Form.Control>
+                                </Form.Group>
 
-                        <Form.Group id="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                ref={passwordRef}
-                                required
-                            ></Form.Control>
-                        </Form.Group>
+                                <Form.Group id="password">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control
+                                        type="password"
+                                        ref={passwordRef}
+                                        required
+                                    ></Form.Control>
+                                </Form.Group>
 
-                        <Button
-                            onClick={handleSumbit}
-                            className="w-100 btn loginBtn signup"
-                            type="sumit"
-                        >
-                            Sing up
-                        </Button>
-                    </Form>
-                </Card.Body>
-            </Card>
+                                <Button
+                                    onClick={handleSumbit}
+                                    className="w-100 btn loginBtn signup"
+                                    type="sumit"
+                                >
+                                    Sing up
+                                </Button>
+                            </Form>
+                        </Card.Body>
+                    </Card>
+                </div>
+            </Container>
         </>
     )
 }

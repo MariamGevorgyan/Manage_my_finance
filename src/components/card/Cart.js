@@ -1,14 +1,5 @@
 import React, { PureComponent } from 'react'
-import {
-    BarChart,
-    Bar,
-    Cell,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-} from 'recharts'
+import { BarChart, Bar, Tooltip, Legend } from 'recharts'
 export default function App(props) {
     const data = [
         {
@@ -64,6 +55,8 @@ export default function App(props) {
 
                 <BarChart width={80} height={30} data={data}>
                     <Bar dataKey="uv" fill="#8884d8" />
+
+                    <Tooltip />
                 </BarChart>
             </div>
             <div className="card_type_money">
