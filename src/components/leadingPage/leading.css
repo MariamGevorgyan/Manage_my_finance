@@ -8,11 +8,12 @@ body {
 .content_1 {
     font-size: 55px;
     font-weight: 700;
-    color: #e84148;
+    color: #ee992c;
 }
 .content_2 {
     font-weight: 700;
-    color: #ee992c;
+    color: #e84148;
+
     font-size: 55px;
 }
 .content_3 {
@@ -34,4 +35,15 @@ body {
 }
 .content_img {
     width: 800px;
+}
+.afther_footer {
+    background-color: #7ce7cb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 280px;
+}
+.afther_footer span {
+    font-weight: 700;
 }
