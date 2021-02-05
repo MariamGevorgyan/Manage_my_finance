@@ -1,9 +1,8 @@
 import { Form, Button, Card } from 'react-bootstrap'
-import AuthProvider from './context/AuthContext'
 import { Container } from 'react-bootstrap'
 import './login.css'
 import { useRef } from 'react'
-import { useAuth } from './context/AuthContext'
+import { auth } from './firebase'
 import * as EmailValidator from 'email-validator'
 import { Link, useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -15,7 +14,7 @@ export default function Signup(props) {
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const history = useHistory()
-    const { signup, currentUser } = useAuth()
+    // const { signup, currentUser } = useAuth()
 
     function userMessage(icon, title) {
         return Swal.fire({
@@ -26,6 +25,11 @@ export default function Signup(props) {
             timer: 2500,
         })
     }
+
+    function signup(email, password) {
+        auth.createUserWithEmailAndPassword(email, password)
+    }
+
     async function handleSumbit(e) {
         e.preventDefault()
 
@@ -48,7 +52,7 @@ export default function Signup(props) {
         try {
             await signup(emailRef.current.value, passwordRef.current.value)
             userMessage('success', 'success')
-            return history.push('/')
+            return history.push('/user')
         } catch {
             return userMessage(
                 'error',
@@ -62,6 +66,7 @@ export default function Signup(props) {
             <Container
                 className="d-flex align-items-center justify-content-center"
                 style={{ minHeight: '100vh' }}
+                id="bolola"
             >
                 <div className="w-100" style={{ maxWidth: '400px' }}>
                     <Card>
@@ -100,7 +105,7 @@ export default function Signup(props) {
                                     className="w-100 btn loginBtn signup"
                                     type="sumit"
                                 >
-                                    Sing up
+                                    Login
                                 </Button>
                             </Form>
                         </Card.Body>
