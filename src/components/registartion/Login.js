@@ -9,7 +9,7 @@ import { Container } from 'react-bootstrap'
 import { auth } from './firebase'
 import './login.css'
 toast.configure()
-export default function Login() {
+export default function Login({ loggedIn }) {
     const emailRef = useRef()
     const passwordRef = useRef()
 
@@ -52,7 +52,8 @@ export default function Login() {
         try {
             await login(emailRef.current.value, passwordRef.current.value)
             userMessage(true, `✅ Loggined`)
-            return history.push('/user')
+            loggedIn(true)
+            return history.push('/dashboard')
         } catch (error) {
             return userMessage(false, `❌ ${error.message}`)
         }

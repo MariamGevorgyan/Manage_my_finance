@@ -43,7 +43,12 @@ export default function LeadingPage() {
                         height="40"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <image href={icon} height="40" width="40" />
+                        <image
+                            href={icon}
+                            className="img-fluid"
+                            height="40"
+                            width="40"
+                        />
                     </svg>
                     <span>Budget-friendly, totally free</span>
                 </div>

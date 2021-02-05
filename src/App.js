@@ -23,14 +23,15 @@ function App() {
     return (
         <div className="App">
             <Router>
-                {!loggedIn ? <Header /> : <Navbar />}
+                {loggedIn ? <Navbar /> : <Header />}
 
                 <Switch>
                     <Route exact path="/">
                         {loggedIn ? (
                             <Redirect to="/dashboard" />
                         ) : (
-                            <LeadingPage />
+                            <h1>Leading page</h1>
+                            // <LeadingPage />
                         )}
                     </Route>
                     <Router exact path="/dashboard">
@@ -41,10 +42,10 @@ function App() {
                         <PieCharts />
                     </Router>
                     <Router path="/registartion">
-                        <Signup />
+                        <Signup loggedIn={setLoggedIn} />
                     </Router>
                     <Route path="/login">
-                        <Login />
+                        <Login loggedIn={setLoggedIn} />
                     </Route>
                     <Route path="/user">
                         <User />

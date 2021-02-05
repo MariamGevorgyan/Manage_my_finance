@@ -21,9 +21,9 @@ export default function Header(props) {
                     <Link to="/login">
                         <button className="btnin btn">LOG-IN </button>
                     </Link>
-                    <Link to="/registartion">
+                    {/* <Link to="/registartion">
                         <button className="btnin btn">Reg</button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </>
