@@ -6,23 +6,37 @@ import { auth } from './firebase'
 import * as EmailValidator from 'email-validator'
 import { Link, useHistory } from 'react-router-dom'
 import Swal from 'sweetalert2'
-
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './login.css'
 
+toast.configure()
 export default function Signup(props) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const history = useHistory()
-    // const { signup, currentUser } = useAuth()
 
-    function userMessage(icon, title) {
-        return Swal.fire({
-            position: 'top-center',
-            icon,
-            title,
-            showConfirmButton: false,
-            timer: 2500,
+    function userMessage(type, message) {
+        if (type) {
+            return toast.success(message, {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        }
+        return toast.error(message, {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
         })
     }
 
@@ -34,29 +48,29 @@ export default function Signup(props) {
         e.preventDefault()
 
         if (!EmailValidator.validate(emailRef.current.value)) {
-            return userMessage('error', 'Invalid Email Address:')
+            return userMessage(false, '❌ Invalid Email Address:')
         }
 
         if (!(passwordRef.current.value === passwordConfirmRef.current.value)) {
-            return userMessage('error', 'Password do not much')
+            return userMessage(false, '❌ Password do not much')
         }
         if (
             passwordRef.current.value.length < 6 ||
             passwordConfirmRef.current.value < 6
         ) {
             return userMessage(
-                'error',
-                'Password should be minimum 6 characters'
+                false,
+                '❌ Password should be minimum 6 characters'
             )
         }
         try {
             await signup(emailRef.current.value, passwordRef.current.value)
-            userMessage('success', 'success')
+            userMessage(true, '✔ your account has been registered successfully')
             return history.push('/user')
         } catch {
             return userMessage(
-                'error',
-                'The email address is already in use by another account.'
+                false,
+                '❌ The email address is already in use by another account.'
             )
         }
     }
