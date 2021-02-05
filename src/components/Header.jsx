@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import LoginBtn from './registartion/LoginBtn'
 import './registartion/login.css'
 import logo from './logo_2.png'
 
@@ -21,10 +19,10 @@ export default function Header(props) {
                 </Link>
                 <div className="signinup">
                     <Link to="/login">
-                        <button className="btnin btn">Log in </button>
+                        <button className="btnin btn">LOG-IN </button>
                     </Link>
                     <Link to="/registartion">
-                        <button className="btnup btn">Sign up</button>
+                        <button className="btnin btn">Reg</button>
                     </Link>
                 </div>
             </div>

@@ -73,3 +73,7 @@
 .cardBody {
     box-shadow: 0px 0px 20px #0000008c;
 }
+.or {
+    text-align: center;
+    margin-bottom: 10px;
+}
