@@ -7,6 +7,7 @@ import Cards from './components/Rotation/Cards'
 import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
+import Navbar from './components/NavBar/Navbar'
 
 import {
     BrowserRouter as Router,
@@ -20,6 +21,7 @@ function App() {
         <div className="App">
             <Router>
                 <Header />
+                <Navbar />
                 <Switch>
                     <Route exact path="/">
                         <div className="linerChart">

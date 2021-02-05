@@ -51,7 +51,7 @@ export default function Login() {
 
         try {
             await login(emailRef.current.value, passwordRef.current.value)
-            userMessage(true, `✔ Loggined`)
+            userMessage(true, `✅ Loggined`)
             return history.push('/user')
         } catch (error) {
             return userMessage(false, `❌ ${error.message}`)
