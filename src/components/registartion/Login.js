@@ -51,7 +51,7 @@ export default function Login() {
 
         try {
             await login(emailRef.current.value, passwordRef.current.value)
-            userMessage(true, `✔ Loggined`)
+            userMessage(true, `✅ Loggined`)
             return history.push('/user')
         } catch (error) {
             return userMessage(false, `❌ ${error.message}`)
@@ -90,7 +90,7 @@ export default function Login() {
                                     className="w-100 btn loginBtn signup"
                                     type="sumit"
                                 >
-                                    Sing up
+                                    LOGIN
                                 </Button>
                                 <hr />
                                 <div className="or">
@@ -98,7 +98,7 @@ export default function Login() {
                                 </div>
                             </Form>
                             <Link to="/registartion">
-                                <Button className="w-100 btn ">Sing up</Button>
+                                <Button className="w-100 btn ">Sing in</Button>
                             </Link>
                         </Card.Body>
                     </Card>

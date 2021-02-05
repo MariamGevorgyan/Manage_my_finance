@@ -1,4 +1,5 @@
 import './App.css'
+import { useState } from 'react'
 import Header from './components/Header'
 import Login from './components/registartion/Login'
 import LinerChart from './components/charts/linerChart'
@@ -7,6 +8,8 @@ import Cards from './components/Rotation/Cards'
 import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
+import Navbar from './components/NavBar/Navbar'
+import LeadingPage from './components/leadingPage/LeadingPage'
 
 import {
     BrowserRouter as Router,
@@ -16,21 +19,30 @@ import {
 } from 'react-router-dom'
 
 function App() {
+    const [loggedIn, setLoggedIn] = useState(false)
     return (
         <div className="App">
             <Router>
-                <Header />
+                {!loggedIn ? <Header /> : <Navbar />}
+
                 <Switch>
                     <Route exact path="/">
+                        {loggedIn ? (
+                            <Redirect to="/dashboard" />
+                        ) : (
+                            <LeadingPage />
+                        )}
+                    </Route>
+                    <Router exact path="/dashboard">
                         <div className="linerChart">
                             <Cards />
                             <LinerChart />
                         </div>
                         <PieCharts />
-                    </Route>
-                    <Route path="/registartion">
+                    </Router>
+                    <Router path="/registartion">
                         <Signup />
-                    </Route>
+                    </Router>
                     <Route path="/login">
                         <Login />
                     </Route>
