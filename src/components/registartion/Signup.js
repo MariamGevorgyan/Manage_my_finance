@@ -65,7 +65,10 @@ export default function Signup(props) {
         }
         try {
             await signup(emailRef.current.value, passwordRef.current.value)
-            userMessage(true, '✅ your account has been registered successfully')
+            userMessage(
+                true,
+                '✅ your account has been registered successfully'
+            )
             return history.push('/user')
         } catch {
             return userMessage(

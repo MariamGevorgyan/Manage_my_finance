@@ -1,0 +1,37 @@
+body {
+    background-color: #c9dfdb;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+}
+.content_1 {
+    font-size: 55px;
+    font-weight: 700;
+    color: #e84148;
+}
+.content_2 {
+    font-weight: 700;
+    color: #ee992c;
+    font-size: 55px;
+}
+.content_3 {
+    font-weight: 700;
+}
+.leadingContent {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 150px;
+}
+.get-start {
+    margin-top: 30px;
+    background-color: #82a796;
+    width: 150px;
+    height: 60px;
+    color: white;
+    font-weight: 700;
+    margin-left: 15px;
+}
+.content_img {
+    width: 800px;
+}
