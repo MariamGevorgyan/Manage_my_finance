@@ -1,45 +1,60 @@
 import { Form, Button, Card } from 'react-bootstrap'
-import './login.css'
 import { useRef } from 'react'
-// import { useAuth } from './context/AuthContext'
+import './login.css'
 import * as EmailValidator from 'email-validator'
 import { Link, useHistory } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { Container } from 'react-bootstrap'
 import { auth } from './firebase'
 import './login.css'
-
-export default function Login(props) {
+toast.configure()
+export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
 
     const history = useHistory()
 
+    function userMessage(type, message) {
+        if (type) {
+            return toast.success(message, {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        }
+        return toast.error(message, {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        })
+    }
+
     function login(email, password) {
         return auth.signInWithEmailAndPassword(email, password)
     }
-    function userMessage(icon, title) {
-        return Swal.fire({
-            position: 'top-center',
-            icon,
-            title,
-            showConfirmButton: false,
-            timer: 2500,
-        })
-    }
+
     async function handleSumbit(e) {
         e.preventDefault()
 
         if (!EmailValidator.validate(emailRef.current.value)) {
-            return userMessage('error', 'Invalid Email Address:')
+            return userMessage(false, `❌ Email not found`)
         }
 
         try {
             await login(emailRef.current.value, passwordRef.current.value)
-            userMessage('success', 'success')
+            userMessage(true, `✔ Loggined`)
             return history.push('/user')
-        } catch {
-            return userMessage('error', 'Somethin went wrong')
+        } catch (error) {
+            return userMessage(false, `❌ ${error.message}`)
         }
     }
 

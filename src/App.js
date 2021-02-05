@@ -6,6 +6,7 @@ import PieCharts from './components/Rotation/PieCharts'
 import Cards from './components/Rotation/Cards'
 import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
+import ForgotPassword from './components/registartion/ForgotPassword'
 
 import {
     BrowserRouter as Router,
@@ -27,10 +28,18 @@ function App() {
                         </div>
                         <PieCharts />
                     </Route>
-                    <Route path="/registartion" component={<Signup />} />
-                    <Router path="/login" component={<Login />} />
-                    <Router path="/user" component={<User />} />
-                    <Router path="/forgot-password" component={<User />} />
+                    <Route path="/registartion">
+                        <Signup />
+                    </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    <Route path="/user">
+                        <User />
+                    </Route>
+                    <Route path="/forgot-password">
+                        <ForgotPassword />
+                    </Route>
                 </Switch>
             </Router>
         </div>
