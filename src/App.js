@@ -9,7 +9,7 @@ import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
 import Navbar from './components/NavBar/Navbar'
-import LeadingPage from './components/leadingPage/LeadingPage'
+import LeadingPage from './components/LeadingPage/LeadingPage'
 
 import {
     BrowserRouter as Router,
@@ -23,12 +23,12 @@ function App() {
     return (
         <div className="App">
             <Router>
-                {!loggedIn ? <Header /> : <Navbar />}
+                {loggedIn ? <Navbar /> : <Header />}
 
                 <Switch>
                     <Route exact path="/">
                         {loggedIn ? (
-                            <Redirect to="/dashboard" />
+                            <Redirect exact to="/dashboard" />
                         ) : (
                             <LeadingPage />
                         )}
@@ -41,10 +41,10 @@ function App() {
                         <PieCharts />
                     </Router>
                     <Router path="/registartion">
-                        <Signup />
+                        <Signup loggedIn={setLoggedIn} />
                     </Router>
                     <Route path="/login">
-                        <Login />
+                        <Login loggedIn={setLoggedIn} />
                     </Route>
                     <Route path="/user">
                         <User />

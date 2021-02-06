@@ -4,14 +4,13 @@ import './login.css'
 import { useRef } from 'react'
 import { auth } from './firebase'
 import * as EmailValidator from 'email-validator'
-import { Link, useHistory } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './login.css'
 
 toast.configure()
-export default function Signup(props) {
+export default function Signup({ loggedIn }) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -69,7 +68,8 @@ export default function Signup(props) {
                 true,
                 '✅ your account has been registered successfully'
             )
-            return history.push('/user')
+            loggedIn(true)
+            return history.push('/dashboard')
         } catch {
             return userMessage(
                 false,
