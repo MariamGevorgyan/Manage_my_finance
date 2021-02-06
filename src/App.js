@@ -9,7 +9,7 @@ import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
 import Navbar from './components/NavBar/Navbar'
-import LeadingPage from './components/leadingPage/LeadingPage'
+import LeadingPage from './components/LeadingPage/LeadingPage'
 
 import {
     BrowserRouter as Router,
@@ -28,10 +28,9 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         {loggedIn ? (
-                            <Redirect to="/dashboard" />
+                            <Redirect exact to="/dashboard" />
                         ) : (
-                            <h1>Leading page</h1>
-                            // <LeadingPage />
+                            <LeadingPage />
                         )}
                     </Route>
                     <Router exact path="/dashboard">
