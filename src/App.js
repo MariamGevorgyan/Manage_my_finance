@@ -9,8 +9,10 @@ import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
 import Navbar from './components/NavBar/Navbar'
+// import LeadingPage from './components/leadingPage_proto/LeadingPage'
 import LeadingPage from './components/LeadingPage/LeadingPage'
-
+import FindSaving from './components/findSaving/FindSaving'
+import Profil from './components/profil/Profil'
 import {
     BrowserRouter as Router,
     Switch,
@@ -19,15 +21,15 @@ import {
 } from 'react-router-dom'
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [user, setUser] = useState(null)
     return (
         <div className="App">
             <Router>
-                {loggedIn ? <Navbar /> : <Header />}
+                {user ? <Navbar /> : <Header />}
 
                 <Switch>
                     <Route exact path="/">
-                        {loggedIn ? (
+                        {user ? (
                             <Redirect exact to="/dashboard" />
                         ) : (
                             <LeadingPage />
@@ -41,16 +43,22 @@ function App() {
                         <PieCharts />
                     </Router>
                     <Router path="/registartion">
-                        <Signup loggedIn={setLoggedIn} />
+                        <Signup user={setUser} />
                     </Router>
                     <Route path="/login">
-                        <Login loggedIn={setLoggedIn} />
+                        <Login user={setUser} />
                     </Route>
                     <Route path="/user">
                         <User />
                     </Route>
+                    <Route path="/profil">
+                        <Profil />
+                    </Route>
                     <Route path="/forgot-password">
                         <ForgotPassword />
+                    </Route>
+                    <Route path="/find-saving">
+                        <FindSaving />
                     </Route>
                 </Switch>
             </Router>

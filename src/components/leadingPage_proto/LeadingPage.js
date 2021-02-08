@@ -7,26 +7,33 @@ import icon from './v.svg'
 export default function LeadingPage() {
     return (
         <>
-            <div className="leadingContent">
-                <div className="content">
-                    <span className="content_1">
-                        Experience a <br />
-                        fresh way to
-                    </span>
-                    <span className="content_2">manage money</span>
-                    <span className="content_3">
-                        Reach your goals with personalized insights, custom
-                        <br /> budgets, spend tracking, and subscription
-                        monitoring—all <br />
-                        for free.
-                    </span>
-                    <Link to="/registartion">
-                        <button className="get-start btn">Get start</button>
-                    </Link>
+            <div className="container">
+                <div className="row">
+                    <div className="col-10">
+                        <div className="leadingContent">
+                            <div className="content">
+                                <span className="content_1">
+                                    The easiest way to <br /> manage personal
+                                    finance
+                                </span>
+                                {/* <span className="content_2">manage money</span> */}
+                                <span className="content_3">
+                                    Money will take you wherever you whish,
+                                    <br /> but it will not please you as the
+                                    driver.
+                                </span>
+                                <Link to="/registartion">
+                                    <button className="get-start btn">
+                                        Get start
+                                    </button>
+                                </Link>
+                            </div>
+                            <img className="content_img" src={img} />
+                        </div>
+                    </div>
                 </div>
-                <img className="content_img" src={img} />
             </div>
-            <div class="afther_footer">
+            {/* <div class="afther_footer">
                 <div>
                     <svg
                         width="40"
@@ -52,7 +59,7 @@ export default function LeadingPage() {
                     </svg>
                     <span>Budget-friendly, totally free</span>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
