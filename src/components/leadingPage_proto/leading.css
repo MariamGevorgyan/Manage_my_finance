@@ -1,23 +1,21 @@
-body {
-    background-color: #c9dfdb;
-}
 .content {
     display: flex;
     flex-direction: column;
 }
 .content_1 {
+    font-family: 'Russo One', sans-serif;
     font-size: 55px;
     font-weight: 700;
-    color: #ee992c;
+    color: #000000;
 }
 .content_2 {
     font-weight: 700;
-    color: #e84148;
 
     font-size: 55px;
 }
 .content_3 {
     font-weight: 700;
+    color: #000;
 }
 .leadingContent {
     display: flex;
@@ -26,7 +24,7 @@ body {
 }
 .get-start {
     margin-top: 30px;
-    background-color: #82a796;
+    background-color: #00adb5;
     width: 150px;
     height: 60px;
     color: white;

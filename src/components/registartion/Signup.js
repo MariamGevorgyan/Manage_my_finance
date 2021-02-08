@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import './login.css'
 
 toast.configure()
-export default function Signup({ loggedIn }) {
+export default function Signup({ user }) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -68,7 +68,8 @@ export default function Signup({ loggedIn }) {
                 true,
                 '✅ your account has been registered successfully'
             )
-            loggedIn(true)
+            user(auth.currentUser)
+            console.log(auth)
             return history.push('/dashboard')
         } catch {
             return userMessage(
