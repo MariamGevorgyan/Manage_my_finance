@@ -12,7 +12,6 @@ toast.configure()
 export default function Login({ user }) {
     const emailRef = useRef()
     const passwordRef = useRef()
-
     const history = useHistory()
 
     function userMessage(type, message) {
@@ -86,6 +85,9 @@ export default function Login({ user }) {
                                         required
                                     ></Form.Control>
                                 </Form.Group>
+                                <Link to="/forgot-password">
+                                    Forgot password ?
+                                </Link>
                                 <Button
                                     onClick={handleSumbit}
                                     className="w-100 btn loginBtn signup"

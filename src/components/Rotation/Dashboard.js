@@ -1,7 +1,9 @@
 import React from 'react'
-import firebase from 'firebase'
-import './profil.css'
-export default function Profil() {
+import Cards from './Cards'
+import LinerChart from './../charts/linerChart'
+import PieCharts from './PieCharts'
+
+export default function Dashboard() {
     return (
         <>
             <div className="container">
@@ -21,13 +23,12 @@ export default function Profil() {
                         </ul> */}
                         <div className="tab-content py-4">
                             <div className="tab-pane active" id="profile">
-                                <h5 className="mb-3">User Profile</h5>
                                 <div className="row">
                                     <div className="col-md-12">
-                                        <h5 className="mt-2">
+                                        {/* <h5 className="mt-2">
                                             <span className="fa fa-clock-o ion-clock float-right"></span>
                                             Info
-                                        </h5>
+                                        </h5> */}
                                         <table className="table table-sm table-hover table-striped">
                                             <tbody>
                                                 <tr>
@@ -64,13 +65,13 @@ export default function Profil() {
                         </div>
                     </div>
                     <div className="col-lg-4 order-lg-1 text-center">
-                        <label className="custom-file">
+                        {/* <label className="custom-file">
                             <input
                                 type="file"
                                 id="file"
                                 className="custom-file-input"
                             />
-                        </label>
+                        </label> */}
                         <img
                             src="http://i1.wp.com/www.tshambler.com/wp-content/uploads/2017/06/Warren-Buffett-Image.jpg?resize=600%2C600"
                             className="mx-auto img-fluid img-circle d-block"
@@ -80,6 +81,11 @@ export default function Profil() {
                     </div>
                 </div>
             </div>
+            <div className="linerChart">
+                <Cards />
+                <LinerChart />
+            </div>
+            <PieCharts />
         </>
     )
 }
