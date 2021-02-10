@@ -98,7 +98,7 @@ export default function Login({ loggedIn }) {
                                     <span> Or</span> <br />
                                 </div>
                             </Form>
-                            <Link to="/registartion">
+                            <Link to="/registration">
                                 <Button className="w-100 btn ">Sing in</Button>
                             </Link>
                         </Card.Body>

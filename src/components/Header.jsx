@@ -1,4 +1,4 @@
-import './registartion/login.css'
+import './registration/login.css'
 import logo from './logo_2.png'
 
 import {

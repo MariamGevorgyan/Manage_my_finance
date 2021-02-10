@@ -14,6 +14,8 @@ function Navbar() {
 
     const showSidebar = () => setSidebar(!sidebar)
 
+    const [isShown, setIsShown] = useState(false);
+
     return (
         <>
             <IconContext.Provider value={{ color: '#fff' }}>
@@ -22,7 +24,7 @@ function Navbar() {
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
                 </div>
-                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <nav className={!sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className="nav-menu-items" onClick={showSidebar}>
                         <li className="navbar-toggle">
                             <Link to="#" className="menu-bars">
@@ -31,10 +33,15 @@ function Navbar() {
                         </li>
                         {SidebarData.map((item, index) => {
                             return (
-                                <li key={index} className={item.cName}>
+                                <li key={index} className={item.cName}
+                                    onMouseEnter={() => setIsShown(true)}
+                                    onMouseLeave={() => setIsShown(false)}>
+                                
                                     <Link to={item.path}>
-                                        {item.icon}
-                                        <span>{item.title}</span>
+                                        {item.icon}                              
+                                    {isShown && (           
+                                        <span className = "nav-bar-item" >{item.title}</span>
+                                    )}
                                     </Link>
                                 </li>
                             )
@@ -42,7 +49,7 @@ function Navbar() {
                     </ul>
                 </nav>
             </IconContext.Provider>
-        </>
+        </>        
     )
 }
 

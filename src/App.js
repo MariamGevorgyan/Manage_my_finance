@@ -1,15 +1,21 @@
 import './App.css'
 import { useState } from 'react'
 import Header from './components/Header'
-import Login from './components/registartion/Login'
+import Login from './components/registration/Login'
 import LinerChart from './components/charts/linerChart'
 import PieCharts from './components/Rotation/PieCharts'
 import Cards from './components/Rotation/Cards'
-import Signup from './components/registartion/Signup'
+import Signup from './components/registration/Signup'
 import User from './components/Rotation/User'
-import ForgotPassword from './components/registartion/ForgotPassword'
-import Navbar from './components/NavBar/Navbar'
+import ForgotPassword from './components/registration/ForgotPassword'
+import Navbar from './components/Navbar/Navbar'
 import LeadingPage from './components/LeadingPage/LeadingPage'
+
+//import Navbar from './components/Navbar/Navbar.js';
+//import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Transaction from './pages/Transaction';
+import Expenses from './pages/Expenses';
+import Income from './pages/Income';
 
 import {
     BrowserRouter as Router,
@@ -23,9 +29,13 @@ function App() {
     return (
         <div className="App">
             <Router>
-                {loggedIn ? <Navbar /> : <Header />}
+                {!loggedIn ? <Navbar /> : <Header />}
 
                 <Switch>
+                    <Route path='/' exact component={Transaction} />
+                    <Route path='/income' component={Income} />
+                    <Route path='/expenses' component={Expenses} />
+                    
                     <Route exact path="/">
                         {loggedIn ? (
                             <Redirect exact to="/dashboard" />
@@ -40,7 +50,7 @@ function App() {
                         </div>
                         <PieCharts />
                     </Router>
-                    <Router path="/registartion">
+                    <Router path="/registration">
                         <Signup loggedIn={setLoggedIn} />
                     </Router>
                     <Route path="/login">
