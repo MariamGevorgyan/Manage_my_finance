@@ -9,10 +9,9 @@ import { Container } from 'react-bootstrap'
 import { auth } from './firebase'
 import './login.css'
 toast.configure()
-export default function Login({ loggedIn }) {
+export default function Login({ user }) {
     const emailRef = useRef()
     const passwordRef = useRef()
-
     const history = useHistory()
 
     function userMessage(type, message) {
@@ -52,7 +51,7 @@ export default function Login({ loggedIn }) {
         try {
             await login(emailRef.current.value, passwordRef.current.value)
             userMessage(true, `✅ Loggined`)
-            loggedIn(true)
+            user(auth.currentUser)
             return history.push('/dashboard')
         } catch (error) {
             return userMessage(false, `❌ ${error.message}`)
@@ -86,6 +85,9 @@ export default function Login({ loggedIn }) {
                                         required
                                     ></Form.Control>
                                 </Form.Group>
+                                <Link to="/forgot-password">
+                                    Forgot password ?
+                                </Link>
                                 <Button
                                     onClick={handleSumbit}
                                     className="w-100 btn loginBtn signup"

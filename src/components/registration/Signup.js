@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import './login.css'
 
 toast.configure()
-export default function Signup({ loggedIn }) {
+export default function Signup({ user }) {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
@@ -68,8 +68,11 @@ export default function Signup({ loggedIn }) {
                 true,
                 '✅ your account has been registered successfully'
             )
-            loggedIn(true)
-            return history.push('/dashboard')
+
+            user(auth.currentUser)
+            console.log(auth.currentUser)
+            history.push('/dashboard')
+            return window.location.reload()
         } catch {
             return userMessage(
                 false,
@@ -90,6 +93,18 @@ export default function Signup({ loggedIn }) {
                         <Card.Body className="cardBody">
                             <Form>
                                 <h2 className="text-center mb-4">Sign up</h2>
+                                <Form.Group id="name">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        required
+                                    ></Form.Control>
+                                    <Form.Label>Surname</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        required
+                                    ></Form.Control>
+                                </Form.Group>
                                 <Form.Group id="email">
                                     <Form.Label>Email</Form.Label>
                                     <Form.Control

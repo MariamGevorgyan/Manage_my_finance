@@ -7,6 +7,7 @@ import PieCharts from './components/Rotation/PieCharts'
 import Cards from './components/Rotation/Cards'
 import Signup from './components/registration/Signup'
 import User from './components/Rotation/User'
+
 import ForgotPassword from './components/registration/ForgotPassword'
 import Navbar from './components/Navbar/Navbar'
 import LeadingPage from './components/LeadingPage/LeadingPage'
@@ -17,6 +18,13 @@ import Transaction from './pages/Transaction';
 import Expenses from './pages/Expenses';
 import Income from './pages/Income';
 
+
+import LeadingPage from './components/leadingPage_proto/LeadingPage'
+// import LeadingPage from './components/LeadingPage/LeadingPage'
+import FindSaving from './components/findSaving/FindSaving'
+import Profil from './components/profil/Profil'
+import Dashboard from './components/Rotation/Dashboard'
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -25,11 +33,14 @@ import {
 } from 'react-router-dom'
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [user, setUser] = useState(null)
     return (
         <div className="App">
             <Router>
-                {!loggedIn ? <Navbar /> : <Header />}
+
+                {loggedIn ? <Navbar /> : <Header />}
+
+                {user ? <Navbar /> : '<Header />'}
 
                 <Switch>
                     <Route path='/' exact component={Transaction} />
@@ -37,30 +48,40 @@ function App() {
                     <Route path='/expenses' component={Expenses} />
                     
                     <Route exact path="/">
-                        {loggedIn ? (
+                        {user ? (
                             <Redirect exact to="/dashboard" />
                         ) : (
                             <LeadingPage />
                         )}
                     </Route>
                     <Router exact path="/dashboard">
-                        <div className="linerChart">
+                        {/* <div className="linerChart">
                             <Cards />
                             <LinerChart />
                         </div>
-                        <PieCharts />
+                        <PieCharts /> */}
+                        <Dashboard />
                     </Router>
+
                     <Router path="/registration">
-                        <Signup loggedIn={setLoggedIn} />
+                        {/*<Signup loggedIn={setLoggedIn} />*/}
+                        <Signup user={setUser} />
+
                     </Router>
-                    <Route path="/login">
-                        <Login loggedIn={setLoggedIn} />
+                    <Route exact path="/login">
+                        <Login user={setUser} />
                     </Route>
-                    <Route path="/user">
+                    <Route exact path="/user">
                         <User />
                     </Route>
-                    <Route path="/forgot-password">
+                    <Route exact path="/profil">
+                        <Profil />
+                    </Route>
+                    <Route exact path="/forgot-password">
                         <ForgotPassword />
+                    </Route>
+                    <Route exact path="/find-saving">
+                        <FindSaving />
                     </Route>
                 </Switch>
             </Router>

@@ -3,29 +3,36 @@ import { Container } from 'react-bootstrap'
 import './login.css'
 import { useRef } from 'react'
 import { auth } from './firebase'
-import Swal from 'sweetalert2'
+import { toast } from 'react-toastify'
 
 import './login.css'
 
+toast.configure()
 export default function ForgotPassword(props) {
     const emailRef = useRef()
-
-    function userMessage(icon, title) {
-        return Swal.fire({
-            position: 'top-center',
-            icon,
-            title,
-            showConfirmButton: false,
-            timer: 2500,
-        })
-    }
 
     async function handleForgot() {
         try {
             await auth.sendPasswordResetEmail(emailRef)
-        } catch (error) {
-            console.log(error, 'from catch')
-            userMessage('error', 'Wrong email adres')
+            toast.info('📩' + ' Pleas check your email', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        } catch (e) {
+            toast.error('❌ ' + e.message, {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
         }
     }
 

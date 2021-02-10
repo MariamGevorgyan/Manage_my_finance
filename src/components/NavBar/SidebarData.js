@@ -6,15 +6,21 @@ import * as GrIcons from 'react-icons/gr'
 
 export const SidebarData = [
     {
-        title: 'Transaction',
-        path: '/',
-        icon: <GrIcons.GrTransaction />,
+        title: 'Profil',
+        path: '/profil',
+        icon: <IoIcons.IoIosPaper />,
         cName: 'nav-text',
     },
     {
+
         title: 'Income',
         path: '/Income',
         icon: <FaIcons.FaCartPlus />,
+
+        title: 'Find Saving',
+        path: '/find-saving',
+        icon: <IoIcons.IoIosPaper />,
+
         cName: 'nav-text',
     },
     {
