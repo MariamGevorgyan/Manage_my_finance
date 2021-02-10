@@ -4,16 +4,16 @@
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
-div.example {
-    width: 100%;
-}
+    div.example {
+        width: 100%;
+    }
 }
 
 body {
-    background-color:#222831; 
+    background-color: #ffffff;
 }
 
-.LeadingPage{
+.LeadingPage {
     display: flex;
     margin-top: 60px;
     justify-content: center;
@@ -45,7 +45,7 @@ body {
 
 .LeadingBtn {
     display: block;
-    background-color: #82a796 ;
+    background-color: #82a796;
     color: black;
     font-weight: 400;
     border-radius: 10%;

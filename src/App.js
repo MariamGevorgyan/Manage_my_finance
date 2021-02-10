@@ -9,10 +9,11 @@ import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
 import Navbar from './components/NavBar/Navbar'
-// import LeadingPage from './components/leadingPage_proto/LeadingPage'
-import LeadingPage from './components/LeadingPage/LeadingPage'
+import LeadingPage from './components/leadingPage_proto/LeadingPage'
+// import LeadingPage from './components/LeadingPage/LeadingPage'
 import FindSaving from './components/findSaving/FindSaving'
 import Profil from './components/profil/Profil'
+import Dashboard from './components/Rotation/Dashboard'
 import {
     BrowserRouter as Router,
     Switch,
@@ -25,7 +26,7 @@ function App() {
     return (
         <div className="App">
             <Router>
-                {user ? <Navbar /> : <Header />}
+                {user ? <Navbar /> : '<Header />'}
 
                 <Switch>
                     <Route exact path="/">
@@ -36,28 +37,29 @@ function App() {
                         )}
                     </Route>
                     <Router exact path="/dashboard">
-                        <div className="linerChart">
+                        {/* <div className="linerChart">
                             <Cards />
                             <LinerChart />
                         </div>
-                        <PieCharts />
+                        <PieCharts /> */}
+                        <Dashboard />
                     </Router>
-                    <Router path="/registartion">
+                    <Router exact path="/registartion">
                         <Signup user={setUser} />
                     </Router>
-                    <Route path="/login">
+                    <Route exact path="/login">
                         <Login user={setUser} />
                     </Route>
-                    <Route path="/user">
+                    <Route exact path="/user">
                         <User />
                     </Route>
-                    <Route path="/profil">
+                    <Route exact path="/profil">
                         <Profil />
                     </Route>
-                    <Route path="/forgot-password">
+                    <Route exact path="/forgot-password">
                         <ForgotPassword />
                     </Route>
-                    <Route path="/find-saving">
+                    <Route exact path="/find-saving">
                         <FindSaving />
                     </Route>
                 </Switch>

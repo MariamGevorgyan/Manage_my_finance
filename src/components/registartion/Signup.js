@@ -68,9 +68,11 @@ export default function Signup({ user }) {
                 true,
                 '✅ your account has been registered successfully'
             )
+
             user(auth.currentUser)
-            console.log(auth)
-            return history.push('/dashboard')
+            console.log(auth.currentUser)
+            history.push('/dashboard')
+            return window.location.reload()
         } catch {
             return userMessage(
                 false,
@@ -91,6 +93,18 @@ export default function Signup({ user }) {
                         <Card.Body className="cardBody">
                             <Form>
                                 <h2 className="text-center mb-4">Sign up</h2>
+                                <Form.Group id="name">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        required
+                                    ></Form.Control>
+                                    <Form.Label>Surname</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        required
+                                    ></Form.Control>
+                                </Form.Group>
                                 <Form.Group id="email">
                                     <Form.Label>Email</Form.Label>
                                     <Form.Control
