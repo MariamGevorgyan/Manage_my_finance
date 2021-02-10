@@ -9,8 +9,8 @@ import Signup from './components/registartion/Signup'
 import User from './components/Rotation/User'
 import ForgotPassword from './components/registartion/ForgotPassword'
 import Navbar from './components/NavBar/Navbar'
-// import LeadingPage from './components/leadingPage_proto/LeadingPage'
-import LeadingPage from './components/LeadingPage/LeadingPage'
+import LeadingPage from './components/leadingPage_proto/LeadingPage'
+// import LeadingPage from './components/LeadingPage/LeadingPage'
 import FindSaving from './components/findSaving/FindSaving'
 import Profil from './components/profil/Profil'
 import Dashboard from './components/Rotation/Dashboard'
@@ -26,7 +26,7 @@ function App() {
     return (
         <div className="App">
             <Router>
-                {user ? <Navbar /> : <Header />}
+                {user ? <Navbar /> : '<Header />'}
 
                 <Switch>
                     <Route exact path="/">
